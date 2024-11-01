@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/adim/Documents/MeteoApp2/Backend/MeteoApp.csproj": {}
+    "/home/adim/Desktop/MyApps/MeteoApp/Backend/MeteoApp.csproj": {}
   },
   "projects": {
-    "/home/adim/Documents/MeteoApp2/Backend/MeteoApp.csproj": {
+    "/home/adim/Desktop/MyApps/MeteoApp/Backend/MeteoApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/adim/Documents/MeteoApp2/Backend/MeteoApp.csproj",
+        "projectUniqueName": "/home/adim/Desktop/MyApps/MeteoApp/Backend/MeteoApp.csproj",
         "projectName": "MeteoApp",
-        "projectPath": "/home/adim/Documents/MeteoApp2/Backend/MeteoApp.csproj",
+        "projectPath": "/home/adim/Desktop/MyApps/MeteoApp/Backend/MeteoApp.csproj",
         "packagesPath": "/home/adim/.nuget/packages/",
-        "outputPath": "/home/adim/Documents/MeteoApp2/Backend/obj/",
+        "outputPath": "/home/adim/Desktop/MyApps/MeteoApp/Backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/adim/.nuget/NuGet/NuGet.Config"
