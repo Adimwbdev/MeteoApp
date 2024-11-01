@@ -117,7 +117,13 @@ cd MeteoApp
    npm install -g @angular/cli
    npm install
    ```
-3. Start the Angular development server:
+3. Install Angular Material (required for UI components):
+   ```bash
+   ng add @angular/material
+   ```
+   - Choose a theme when prompted, and set up global typography and animations as preferred.
+
+4. Start the Angular development server:
    ```bash
    ng serve
    ```
@@ -136,6 +142,76 @@ cd MeteoApp
 | `/api/weatherdata/fetchAndStore/{cityId}` | POST   | Fetch and store weather data for a city       |
 | `/api/weatherdata/cities`          | GET    | Retrieve all cities                           |
 | `/api/weatherdata/cities`          | POST   | Add a new city                                |
+
+### API Call Examples
+
+1. **Get Weather Data for a City**
+   - **Request**:
+     ```http
+     GET /api/weatherdata/4
+     ```
+   - **Response** (example):
+     ```json
+     [
+       {
+         "id": 1,
+         "date": "2023-10-31T14:00:00Z",
+         "temperature": 15.3,
+         "pressure": 1013,
+         "windSpeed": 5.4,
+         "weatherCondition": "Clear",
+         "cityId": 4
+       }
+     ]
+     ```
+
+2. **Fetch and Store Weather Data**
+   - **Request**:
+     ```http
+     POST /api/weatherdata/fetchAndStore/4
+     ```
+   - **Response** (example):
+     ```json
+     {
+       "message": "Weather data for city 4 inserted successfully."
+     }
+     ```
+
+3. **Get All Cities**
+   - **Request**:
+     ```http
+     GET /api/weatherdata/cities
+     ```
+   - **Response** (example):
+     ```json
+     [
+       {
+         "id": 4,
+         "cityName": "Paris",
+         "lat": 48.8566,
+         "lon": 2.3522
+       }
+     ]
+     ```
+
+4. **Add a New City**
+   - **Request**:
+     ```http
+     POST /api/weatherdata/cities
+     Content-Type: application/json
+
+     {
+       "cityName": "London",
+       "lat": 51.5074,
+       "lon": -0.1278
+     }
+     ```
+   - **Response** (example):
+     ```json
+     {
+       "message": "City 'London' added successfully."
+     }
+     ```
 
 ## Contributing
 
