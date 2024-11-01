@@ -93,7 +93,7 @@ cd MeteoApp
 
 1. Navigate to the backend directory:
    ```bash
-   cd backend
+   cd Backend
    ```
 2. Install dependencies and build the project:
    ```bash
@@ -110,7 +110,7 @@ cd MeteoApp
 
 1. Navigate to the frontend directory:
    ```bash
-   cd frontend
+   cd MeteoAngularApp
    ```
 2. Install Angular and dependencies:
    ```bash
