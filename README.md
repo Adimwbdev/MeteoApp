@@ -105,6 +105,7 @@ cd MeteoApp
    ```bash
    dotnet run
    ```
+   - By default, the backend server will be available at `http://localhost:5000`.
 
 #### Frontend Setup
 
@@ -136,6 +137,8 @@ cd MeteoApp
 
 ## API Endpoints
 
+The following API endpoints are accessible via `http://localhost:5000`:
+
 | Endpoint                           | Method | Description                                   |
 |------------------------------------|--------|-----------------------------------------------|
 | `/api/weatherdata/{cityId}`        | GET    | Get weather data for a city                   |
@@ -148,7 +151,7 @@ cd MeteoApp
 1. **Get Weather Data for a City**
    - **Request**:
      ```http
-     GET /api/weatherdata/4
+     GET http://localhost:5000/api/weatherdata/4
      ```
    - **Response** (example):
      ```json
@@ -168,7 +171,7 @@ cd MeteoApp
 2. **Fetch and Store Weather Data**
    - **Request**:
      ```http
-     POST /api/weatherdata/fetchAndStore/4
+     POST http://localhost:5000/api/weatherdata/fetchAndStore/4
      ```
    - **Response** (example):
      ```json
@@ -180,7 +183,7 @@ cd MeteoApp
 3. **Get All Cities**
    - **Request**:
      ```http
-     GET /api/weatherdata/cities
+     GET http://localhost:5000/api/weatherdata/cities
      ```
    - **Response** (example):
      ```json
@@ -197,7 +200,7 @@ cd MeteoApp
 4. **Add a New City**
    - **Request**:
      ```http
-     POST /api/weatherdata/cities
+     POST http://localhost:5000/api/weatherdata/cities
      Content-Type: application/json
 
      {
