@@ -1,0 +1,45 @@
+<div class="add-city-container">
+  <mat-card class="card">
+    <mat-card-title>Add New City</mat-card-title>
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit()" #cityForm="ngForm" class="city-form">
+
+        <!-- Input Fields Section -->
+        <div class="input-fields-container">
+          <!-- City Name Input -->
+          <mat-form-field appearance="fill" class="input-field">
+            <mat-label>City Name</mat-label>
+            <input matInput type="text" id="cityName" [(ngModel)]="city.cityName" name="cityName" required />
+          </mat-form-field>
+
+          <!-- Latitude Input -->
+          <mat-form-field appearance="fill" class="input-field">
+            <mat-label>Latitude</mat-label>
+            <input matInput type="number" id="lat" [(ngModel)]="city.lat" name="lat" required />
+          </mat-form-field>
+
+          <!-- Longitude Input -->
+          <mat-form-field appearance="fill" class="input-field">
+            <mat-label>Longitude</mat-label>
+            <input matInput type="number" id="lon" [(ngModel)]="city.lon" name="lon" required />
+          </mat-form-field>
+        </div>
+
+        
+        <div class="button-group">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!cityForm.form.valid" class="custom-button">
+            Add City
+          </button>
+          <button mat-raised-button color="warn" type="button" (click)="clearFields()" class="custom-button">
+            Clear Fields
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Display message if there is any -->
+  <div *ngIf="message" class="message">
+    {{ message }}
+  </div>
+</div>

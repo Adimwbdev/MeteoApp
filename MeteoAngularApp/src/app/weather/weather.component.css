@@ -1,0 +1,130 @@
+/* General Card Styling */
+.card, .table-card, .chart-card, .image-card {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #f7f8fc;
+  margin-bottom: 20px;
+}
+
+/* Card Titles */
+.mat-card-title {
+  font-size: 1.4em;
+  font-weight: 500;
+  color: #5bc0de; /* Light blue for labels and titles */
+  margin-bottom: 10px;
+}
+
+/* Control Section */
+.control-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Increase spacing between sections */
+}
+
+/* City Select and Fetch Button Section */
+.city-select-section {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between dropdown and button */
+}
+
+/* Date Filters and Buttons Section */
+.date-filter-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px; /* Space between date pickers and filter buttons */
+  flex-wrap: wrap; /* Wrap elements if the screen is too narrow */
+}
+
+/* Filter Buttons Section */
+.filter-buttons {
+  display: flex;
+  gap: 15px; /* Space between Filter and Clear buttons */
+}
+
+/* Dropdowns and Date Fields */
+.dropdown-field, .date-field {
+  min-width: 200px;
+  width: auto;
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* Button Styling */
+.custom-button {
+  border-radius: 8px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+  padding: 8px 20px;
+  margin-top: 0px; /* Remove top margin to align with input fields */
+}
+
+/* Data Display Container */
+.data-display-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  align-items: flex-start; /* Align elements (image, table) vertically at the top */
+}
+
+/* Table and Image Container */
+.table-image-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Image Card Styling */
+.image-card {
+  flex: 0.3; /* Takes up less space compared to the table */
+  min-width: 200px;
+  max-width: 300px;
+  text-align: center;
+}
+
+.weather-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Weather Data Table */
+.table-card {
+  flex: 1; /* Takes up the rest of the available space */
+  min-width: 400px;
+  overflow-x: auto;
+}
+
+/* Chart Container Styling */
+.charts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1.5; /* Increases horizontal space for charts */
+  min-width: 300px;
+}
+
+/* Chart Card */
+.chart-card {
+  text-align: center;
+  width: 100%; /* Ensures the chart fills the container width */
+  min-height: 250px; /* Adjust as needed for chart visibility */
+}
+
+/* Table Header and Cell Styling */
+.mat-header-cell, .mat-cell {
+  padding: 10px 16px;
+  font-size: 1rem;
+}
+
+.mat-header-cell {
+  font-weight: bold;
+  color: #616161;
+  background-color: #f0f0f0;
+}
+
+.mat-row {
+  background-color: white;
+}

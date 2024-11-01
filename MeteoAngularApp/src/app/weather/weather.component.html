@@ -1,0 +1,120 @@
+<form #weatherForm="ngForm" (ngSubmit)="onSubmit()">
+  <!-- Control section -->
+  <mat-card class="card">
+    <mat-card-title>Weather Data Controls</mat-card-title>
+    <mat-card-content>
+      <div class="control-section">
+
+        <!-- City Select Dropdown with Fetch Button -->
+        <div class="city-select-section">
+          <!-- City Select Dropdown -->
+          <mat-form-field appearance="fill" class="dropdown-field">
+            <mat-label>Select City</mat-label>
+            <mat-select [(ngModel)]="cityId" name="cityId" required>
+              <mat-option *ngFor="let city of cities" [value]="city.cityID">
+                {{ city.cityName }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- Fetch & Store Button -->
+          <button mat-raised-button color="primary" type="button" (click)="fetchAndStoreData()" class="custom-button">
+            Fetch & Store New Data
+          </button>
+        </div>
+
+        <!-- Date Pickers with Filter and Clear Buttons -->
+        <div class="date-filter-section">
+          <!-- Start Date Picker -->
+          <mat-form-field appearance="fill" class="date-field">
+            <mat-label>Start Date</mat-label>
+            <input matInput [matDatepicker]="startPicker" [(ngModel)]="startDate" name="startDate">
+            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+            <mat-datepicker #startPicker></mat-datepicker>
+          </mat-form-field>
+
+          <!-- End Date Picker -->
+          <mat-form-field appearance="fill" class="date-field">
+            <mat-label>End Date</mat-label>
+            <input matInput [matDatepicker]="endPicker" [(ngModel)]="endDate" name="endDate">
+            <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+            <mat-datepicker #endPicker></mat-datepicker>
+          </mat-form-field>
+
+          <!-- Filter & Clear Buttons -->
+          <div class="filter-buttons">
+            <button mat-raised-button color="primary" type="submit" class="custom-button">Filter Data</button>
+            <button mat-raised-button color="warn" type="button" (click)="clearFilter()" class="custom-button">Clear Filter</button>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Data Display Section -->
+  <div class="data-display-container">
+    <!-- Weather Data Table -->
+    <mat-card class="table-card">
+      <mat-card-title>Weather Data</mat-card-title>
+      <mat-card-content>
+        <table mat-table [dataSource]="filteredWeatherData" class="mat-elevation-z8">
+          <!-- Date Column -->
+          <ng-container matColumnDef="date">
+            <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+            <mat-cell *matCellDef="let data"> {{ data.date | date:'short' }} </mat-cell>
+          </ng-container>
+
+          <!-- Temperature Column -->
+          <ng-container matColumnDef="temperature">
+            <mat-header-cell *matHeaderCellDef> Temperature (°C) </mat-header-cell>
+            <mat-cell *matCellDef="let data"> {{ data.temperature }} </mat-cell>
+          </ng-container>
+
+          <!-- Pressure Column -->
+          <ng-container matColumnDef="pressure">
+            <mat-header-cell *matHeaderCellDef> Pressure (hPa) </mat-header-cell>
+            <mat-cell *matCellDef="let data"> {{ data.pressure }} </mat-cell>
+          </ng-container>
+
+          <!-- Wind Speed Column -->
+          <ng-container matColumnDef="windSpeed">
+            <mat-header-cell *matHeaderCellDef> Wind Speed (m/s) </mat-header-cell>
+            <mat-cell *matCellDef="let data"> {{ data.windSpeed }} </mat-cell>
+          </ng-container>
+
+          <!-- Weather Condition Column -->
+          <ng-container matColumnDef="weatherCondition">
+            <mat-header-cell *matHeaderCellDef> Condition </mat-header-cell>
+            <mat-cell *matCellDef="let data"> {{ data.weatherCondition }} </mat-cell>
+          </ng-container>
+
+          <!-- Header and Row Definitions -->
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </table>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Weather Charts Section -->
+    <div class="charts-container">
+      <mat-card class="chart-card">
+        <mat-card-title>Temperature Chart</mat-card-title>
+        <mat-card-content>
+          <app-weather-d3-chart [weatherData]="filteredWeatherData"></app-weather-d3-chart>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="chart-card">
+        <mat-card-title>Pressure Chart</mat-card-title>
+        <mat-card-content>
+          <app-weather-d3-pressure-chart [weatherData]="filteredWeatherData"></app-weather-d3-pressure-chart>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="chart-card">
+        <mat-card-title>Wind Speed Chart</mat-card-title>
+        <mat-card-content>
+          <app-weather-d3-wind-speed-chart [weatherData]="filteredWeatherData"></app-weather-d3-wind-speed-chart>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</form>

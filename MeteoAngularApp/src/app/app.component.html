@@ -1,0 +1,22 @@
+<div class="app-container">
+  <!-- Navigation links for routing -->
+  <mat-card class="navigation-card">
+    <mat-card-title>Navigation</mat-card-title>
+    <mat-card-content>
+      <nav class="navigation-links">
+        <!-- Button for Add New City -->
+        <button mat-raised-button color="primary" routerLink="/add-city" class="custom-button">
+          Add New City
+        </button>
+
+        <!-- Button for Returning to Home Page -->
+        <button mat-raised-button color="primary" routerLink="/" class="custom-button">
+          Home Page
+        </button>
+      </nav>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Routed components will display here based on the active route -->
+  <router-outlet></router-outlet>
+</div>
