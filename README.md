@@ -220,7 +220,7 @@ The following API endpoints are accessible via `http://localhost:5000`:
 1. When you first add a city the timeline is depicted as the "now" time plus the time the data were stored. As you fetch more data the x-axis shows the whole date.
 2. The condition columns shows numbers. I could not find the classification of this numbers in the documentation.
 3. When trying to get historical data, the availiabilty was limited and I was getting the following message:
-
+Request with valid date 2024-10-07T00:00:00Z requires data access before 2024-10-27T00:00:00Z, which is not granted with this subscription type (e.g. trial). The valid time period for this account type starts at 2024-10-27T00:00:00Z and ends at 2024-11-07T00:00:00Z. Please contact sales@meteomatics.com and we are happy to provide an extended trial or an upgrade of your account.
 
 
 ## Contributing
