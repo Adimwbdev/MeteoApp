@@ -18,7 +18,7 @@ if (environment.production) {
 bootstrapApplication(AppComponent, {
   providers: [
     { provide: NoopAnimationsModule, useClass: NoopAnimationsModule },
-    provideRouter(routes),    // Configure routing
-    provideHttpClient(), provideAnimationsAsync()       // Enable HTTP client
+    provideRouter(routes),
+    provideHttpClient(), provideAnimationsAsync()  
   ]
 }).catch(err => console.error(err));

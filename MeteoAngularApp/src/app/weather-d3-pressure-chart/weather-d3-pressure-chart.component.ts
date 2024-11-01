@@ -1,4 +1,3 @@
-// src/app/weather-d3-pressure-chart/weather-d3-pressure-chart.component.ts
 import { Component, Input, OnChanges, SimpleChanges, ElementRef } from '@angular/core';
 import * as d3 from 'd3';
 import { WeatherData } from '../models/weather-data.model';
@@ -36,7 +35,8 @@ export class WeatherD3PressureChartComponent implements OnChanges {
 
     const minDate = Math.min(...data.map(d => d.date));
     const maxDate = Math.max(...data.map(d => d.date));
-    const maxPressure = Math.max(...data.map(d => d.pressure));
+    const minPressure = Math.min(...data.map(d => d.pressure)); // Minimum pressure
+    const maxPressure = Math.max(...data.map(d => d.pressure)); // Maximum pressure
 
     const svg = d3.select(this.el.nativeElement).select('svg');
     svg.selectAll('*').remove();
@@ -52,7 +52,7 @@ export class WeatherD3PressureChartComponent implements OnChanges {
       .range([0, width]);
 
     const y = d3.scaleLinear()
-      .domain([0, maxPressure]).nice()
+      .domain([minPressure, maxPressure]).nice() // Adjusted to use minPressure
       .range([height, 0]);
 
     g.append('g')
@@ -68,7 +68,7 @@ export class WeatherD3PressureChartComponent implements OnChanges {
       .append('circle')
       .attr('cx', d => x(d.date))
       .attr('cy', d => y(d.pressure))
-      .attr('r', 5) // Adjust size
-      .attr('fill', 'orange'); // Color for pressure points
+      .attr('r', 5)
+      .attr('fill', 'orange');
   }
 }

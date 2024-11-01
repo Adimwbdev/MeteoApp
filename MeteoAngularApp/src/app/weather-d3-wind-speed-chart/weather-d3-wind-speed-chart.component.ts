@@ -68,7 +68,7 @@ export class WeatherD3WindSpeedChartComponent implements OnChanges {
       .append('circle')
       .attr('cx', d => x(d.date))
       .attr('cy', d => y(d.windSpeed))
-      .attr('r', 5) // Adjust size
-      .attr('fill', 'green'); // Color for wind speed points
+      .attr('r', 5) 
+      .attr('fill', 'green');
   }
 }

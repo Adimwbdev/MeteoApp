@@ -4,22 +4,36 @@
   padding: 20px;
   background-color: #f7f8fc;
   margin-bottom: 20px;
+  text-align: left; /* Align text to the left */
+}
+
+.logo-navigation {
+  display: flex;
+  align-items: center; /* Center vertically within the flex container */
+}
+
+.logo-container {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px; /* Space between logo and buttons */
+}
+
+.meteoapp-logo {
+  max-width: 100%;
+  height: auto;
+  margin-left: 500px;
 }
 
 .navigation-links {
   display: flex;
-  gap: 15px;
+  flex-direction: column;
+  gap: 10px; /* Space between buttons */
 }
 
-.nav-link {
-  font-weight: bold;
-}
-
-/* Button Styling */
 .custom-button {
   border-radius: 8px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
   font-weight: 500;
   padding: 8px 20px;
-  margin-top: 10px;
 }

@@ -13,26 +13,26 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule] 
 })
 export class WeatherComponent implements OnInit {
-  @Input() cityId: number = 1; // Accept cityId as an input property
-  @Output() dataUpdated = new EventEmitter<WeatherData[]>(); // Event emitter for data update
+  @Input() cityId: number = 1;
+  @Output() dataUpdated = new EventEmitter<WeatherData[]>();
   weatherData: WeatherData[] = [];
   errorMessage?: string;
 
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit(): void {
-    this.getWeatherData(this.cityId); // Use the input cityId
+    this.getWeatherData(this.cityId); 
   }
 
   getWeatherData(cityId: number): void {
     this.weatherService.getWeatherData(cityId).subscribe(
       data => {
         this.weatherData = data;
-        this.dataUpdated.emit(this.weatherData); // Emit the updated data
+        this.dataUpdated.emit(this.weatherData);
         console.log("Weather data received:", data);
       },
       error => {
-        this.errorMessage = "Error fetching weather data"; // Set error message
+        this.errorMessage = "Error fetching weather data";
         console.error("Error fetching weather data:", error);
       }
     );

@@ -32,7 +32,7 @@ import { WeatherD3WindSpeedChartComponent } from '../weather-d3-wind-speed-chart
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatInputModule,       // Added MatInputModule for matInput support
+    MatInputModule,
     MatCardModule,
     MatTableModule,
     WeatherD3ChartComponent,

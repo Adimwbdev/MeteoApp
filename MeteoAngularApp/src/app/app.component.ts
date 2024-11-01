@@ -34,7 +34,6 @@ import { MatIconModule } from '@angular/material/icon';
         RouterModule,
         AddCityComponent,
         CommonModule,
-        // Material imports for consistency in the application
         MatButtonModule,
         MatCardModule,
         MatIconModule
@@ -53,7 +52,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  // This method will be called when `dataUpdated` is emitted from WeatherComponent
+
   updateWeatherData(data: WeatherData[]): void {
     console.log("Data received from WeatherComponent:", data);
     this.weatherData = data;

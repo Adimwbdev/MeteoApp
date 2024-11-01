@@ -1,5 +1,3 @@
-
-
 import { Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartOptions } from 'chart.js';
 import { BaseChartDirective, NgChartsModule } from 'ng2-charts';
@@ -10,17 +8,17 @@ import 'chartjs-adapter-date-fns';
     templateUrl: './weather-chart.component.html',
     styleUrls: ['./weather-chart.component.css'],
     standalone: true,
-    imports: [NgChartsModule] // Import chart module here for standalone use
+    imports: [NgChartsModule] 
 })
 export class WeatherChartComponent implements OnChanges {
-    @Input() weatherData: any[] = [];  // Initialize weatherData
+    @Input() weatherData: any[] = []; 
 
     @ViewChild(BaseChartDirective) chart!: BaseChartDirective;
 
     chartData: ChartData<'line'> = {
         datasets: [
             {
-                data: [], // Initialize with empty data
+                data: [], 
                 label: 'Temperature (°C)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 fill: false,
@@ -44,32 +42,30 @@ export class WeatherChartComponent implements OnChanges {
                     display: true,
                     text: 'Temperature (°C)'
                 },
-                min: 0, // Set a minimum value for y-axis
+                min: undefined, 
             }
         }
     };
 
     ngOnChanges(changes: SimpleChanges): void {
         if (changes['weatherData'] && this.weatherData.length) {
+            const temperatures = this.weatherData.map(data => data.temperature);
+            const minTemperature = Math.min(...temperatures);
+            const maxTemperature = Math.max(...temperatures);
+
             this.chartData.datasets[0].data = this.weatherData.map((data) => ({
-                x: new Date(data.date).getTime(), // Ensure this is a Date object
+                x: new Date(data.date).getTime(),
                 y: data.temperature
             }));
-            this.chart?.update(); // Update chart with new data
+
+            this.chartOptions.scales.y.min = minTemperature;
+            this.chartOptions.scales.y.max = maxTemperature;
+
+            this.chart?.update();
         }
     }
 
     constructor() {
-      // Use hardcoded data for testing
-      this.chartData.datasets[0].data = [
-          { x: new Date('2024-10-27T18:00:00').getTime(), y: 15 },
-          { x: new Date('2024-10-27T19:00:00').getTime(), y: 16 },
-          { x: new Date('2024-10-27T20:00:00').getTime(), y: 17 },
-          { x: new Date('2024-10-27T21:00:00').getTime(), y: 18 },
-          { x: new Date('2024-10-27T22:00:00').getTime(), y: 19 },
-          { x: new Date('2024-10-27T23:00:00').getTime(), y: 20 },
-      ];
-      this.chart?.update();
-  }
-  
+        this.chart?.update();
+    }
 }
