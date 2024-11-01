@@ -216,6 +216,13 @@ The following API endpoints are accessible via `http://localhost:5000`:
      }
      ```
 
+## Notes
+1. When you first add a city the timeline is depicted as the "now" time plus the time the data were stored. As you fetch more data the x-axis shows the whole date.
+2. The condition columns shows numbers. I could not find the classification of this numbers in the documentation.
+3. When trying to get historical data, the availiabilty was limited and I was getting the following message:
+
+
+
 ## Contributing
 
 1. Fork the repository.
@@ -227,3 +234,6 @@ The following API endpoints are accessible via `http://localhost:5000`:
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
+
+
+
