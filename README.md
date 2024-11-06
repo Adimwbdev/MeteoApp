@@ -101,13 +101,17 @@ cd MeteoApp
    ```bash
    cd Backend
    ```
-2. Install dependencies and build the project:
+2. In the CityRepository.cs ln 48 add your credentials at the following string parameter:
+   ```csharp
+   private string connectionString = "Server=localhost;Database=YOU_DATABASE_HERE;User Id=sa;Password=YOUR_PASSWORD_HERE;";
+   ```
+3. Install dependencies and build the project:
    ```bash
    dotnet restore
    dotnet build
    ```
-3. Set up your database and apply migrations if needed.
-4. Run the backend server:
+4. Set up your database and apply migrations if needed.
+5. Run the backend server:
    ```bash
    dotnet run
    ```
