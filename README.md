@@ -48,8 +48,8 @@ GO
 CREATE TABLE MeteoApp.Cities (
     CityID INT IDENTITY(1,1) PRIMARY KEY,
     CityName VARCHAR(100),
-    lat DECIMAL(9, 6),
-    lon DECIMAL(9, 6)
+    lat DECIMAL(9, 4),
+    lon DECIMAL(9, 4)
 );
 GO
 
