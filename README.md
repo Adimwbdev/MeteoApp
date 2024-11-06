@@ -46,27 +46,25 @@ GO
 
 -- Step 2: Create the `Cities` Table
 CREATE TABLE MeteoApp.Cities (
-    Id INT PRIMARY KEY IDENTITY,  -- Primary Key with auto-increment
-    CityName NVARCHAR(100) NOT NULL,  -- Name of the city
-    Lat FLOAT NOT NULL,  -- Latitude
-    Lon FLOAT NOT NULL   -- Longitude
+    CityID INT IDENTITY(1,1) PRIMARY KEY,
+    CityName VARCHAR(100),
+    lat DECIMAL(9, 6),
+    lon DECIMAL(9, 6)
 );
 GO
 
 -- Step 3: Create the `WeatherData` Table with Foreign Key Reference to `Cities`
 CREATE TABLE MeteoApp.WeatherData (
-    Id INT PRIMARY KEY IDENTITY,  -- Primary Key with auto-increment
-    Date DATETIME NOT NULL,  -- Date of the weather data
-    Temperature FLOAT NOT NULL,  -- Temperature reading
-    Pressure FLOAT NOT NULL,  -- Pressure reading
-    WindSpeed FLOAT NOT NULL,  -- Wind speed reading
-    WeatherCondition NVARCHAR(100),  -- Description of weather condition
-    CityId INT,  -- Foreign key to Cities table
-
-    -- Define the foreign key constraint to link WeatherData with Cities
-    CONSTRAINT FK_WeatherData_City FOREIGN KEY (CityId) REFERENCES MeteoApp.Cities(Id) ON DELETE CASCADE
+    WeatherDataID INT IDENTITY(1,1) PRIMARY KEY,
+    CityID INT FOREIGN KEY REFERENCES MeteoApp.Cities(CityID),
+    Date DATETIME, 
+    Temperature DECIMAL(10, 2),
+    Pressure DECIMAL(10, 2),
+    WindSpeed DECIMAL(10, 2),
+    WeatherCondition INT
 );
 GO
+
 ```
 
 ## Getting Started
