@@ -37,6 +37,14 @@ MeteoApp is a web application for retrieving and displaying weather data for var
 
 ## Database Setup in SQL Server
 
+### Setting Up SQL Server
+
+1. **Install SQL Server**
+   - Set the `sa` password and configure the authentication mode.
+
+2. **Open SQL Server Management Studio (SSMS)**
+   - Log in with `sa` and the password you set during installation.
+
 To set up the required tables in SQL Server, use the following SQL script. This will create the `MeteoApp` schema and add the necessary tables (`Cities` and `WeatherData`).
 
 ```sql
